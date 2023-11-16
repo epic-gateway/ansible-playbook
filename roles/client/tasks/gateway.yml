@@ -9,6 +9,16 @@
   register: result
   until: result is not failed
 
+- name: Make a patch to set the web service hostname
+  set_fact:
+    patch: "--type=merge -p '{\"spec\":{\"template\":{\"spec\":{\"hostAliases\":[{\"hostnames\":[\"gwdev-ctl\"],\"ip\":\"{{ ws_ip }}\"}]}}}}'"
+
+- name: apply the patch to the deployment
+  command: "kubectl patch -n puregw-system deployment manager {{ patch }}"
+
+- name: apply the patch to the daemonset
+  command: "kubectl patch -n puregw-system daemonset agent {{ patch }}"
+
 - name: Poll the web service to make sure that it's alive
   command: curl --insecure -s -o /dev/null -w "%{http_code}" https://gwdev-ctl/api/epic
   register: result
