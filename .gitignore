@@ -8,3 +8,4 @@ tmp/*tar*
 join-client-cluster
 join-epic-cluster
 gateway_v1a2_gatewayclass-gwdev.yaml
+ws_ip

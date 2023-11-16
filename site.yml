@@ -1,10 +1,12 @@
 - hosts: epic
   roles:
+  - epicws
   - focal
   - k8s
   - epic
 - hosts: client
   roles:
+  - clientws
   - focal
   - k8s
   - client
