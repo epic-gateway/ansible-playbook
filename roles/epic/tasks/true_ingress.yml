@@ -18,3 +18,9 @@
     fstype: bpf
     src: bpf
     path: /sys/fs/bpf
+
+- name: let sudo run TrueIngress commands
+  lineinfile:
+    path: /etc/sudoers
+    regexp: "^Defaults.*secure_path="
+    line: "Defaults        secure_path=\"{{ true_ingress_remote_path }}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\""
