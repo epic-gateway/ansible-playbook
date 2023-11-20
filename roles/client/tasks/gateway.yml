@@ -20,7 +20,7 @@
   command: "kubectl patch -n puregw-system daemonset agent {{ patch }}"
 
 - name: Poll the web service to make sure that it's alive
-  command: curl --insecure -s -o /dev/null -w "%{http_code}" https://gwdev-ctl/api/epic
+  ansible.builtin.command: curl --insecure -s -o /dev/null -w "%{http_code}" https://gwdev-ctl/api/epic
   register: result
   until: result.stdout == '401'
   retries: 36
