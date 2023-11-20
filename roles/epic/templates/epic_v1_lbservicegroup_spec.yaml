@@ -1,6 +1,6 @@
   can-be-shared: yes
   endpoint-template:
-    dnsName: "{{.ClusterServiceName}}-{{.ClusterServiceNS}}-{{.Account}}-uswest.epick8sgw.net"
+    dnsName: "{{.ClusterServiceName}}-{{.ClusterServiceNS}}-{{.Account}}.example.net"
     recordTTL: 180
   envoy-replica-count: 1
   envoy-template:
@@ -82,10 +82,10 @@
               typed_config:
                 "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
                 stat_prefix: {{ $.ServiceName }}
-                server_name: epicuswest
+                server_name: epic-gateway
                 add_user_agent: true
                 use_remote_address: true
-                via: epicuswest
+                via: epic-gateway
                 route_config:
                   name: local_route
                   virtual_hosts:
