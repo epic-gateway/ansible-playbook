@@ -40,10 +40,3 @@
   delay: 10
   register: result
   until: result is not failed
-
-- name: upload the internal gateway manifest
-  copy:
-    src: gateway_v1a2_gateway-internal.yaml
-    dest: gateway_v1a2_gateway-internal.yaml
-- name: install the internal gateway
-  command: kubectl apply -f gateway_v1a2_gateway-internal.yaml
