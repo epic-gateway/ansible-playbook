@@ -16,3 +16,6 @@ true_ingress_artifact: https://github.com/epic-gateway/true-ingress/releases/dow
 true_ingress_interface: "{{ lookup('env', 'EPIC_TRUE_INGRESS_INTF') | default('enp1s0', True) }}"
 
 sample_gw_config: 'gateway_v1a2_gatewayclass-gwdev.yaml'
+
+# Bird config
+bird_remote_path: /opt/acnodal/bird

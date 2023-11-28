@@ -1,7 +1,4 @@
 ---
-# Bird config
-bird_remote_path: /opt/acnodal/bird
-
 # kubeadm init parameters
 pod_cidr: "172.20.0.0/16,fd01::/60"
 svc_cidr: "172.21.0.0/16,fd02::/112"

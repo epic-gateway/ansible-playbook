@@ -1,10 +1,4 @@
 ---
-- name: create bird config directory
-  file:
-    path: "{{ bird_remote_path }}"
-    state: directory
-    mode: ugo+rx
-
 - name:  create router namespace
   shell: kubectl create namespace router --dry-run=client -oyaml | kubectl apply -f -
 

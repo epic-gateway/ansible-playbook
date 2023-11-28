@@ -1,7 +1,4 @@
 ---
-# Bird config
-bird_remote_path: /opt/acnodal/bird
-
 # optional private registry (for development)
 private_registry: "{{ lookup('env', 'EPIC_PRIVATE_REGISTRY') }}"
 

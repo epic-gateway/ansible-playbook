@@ -1,7 +1,14 @@
 ---
-- name: create acnodal installation directory
+- name: create Acnodal TrueIngress installation directory
   file:
     path: "{{ true_ingress_remote_path }}"
+    state: directory
+    mode: ugo+rx
+  become: true
+
+- name: create Acnodal Bird router installation directory
+  file:
+    path: "{{ bird_remote_path }}"
     state: directory
     mode: ugo+rx
   become: true
