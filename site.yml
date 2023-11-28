@@ -4,6 +4,11 @@
   - focal
   - k8s
   - epic
+- hosts: epicnode
+  roles:
+  - focal
+  - k8s
+  - node
 - hosts: client
   roles:
   - clientws
