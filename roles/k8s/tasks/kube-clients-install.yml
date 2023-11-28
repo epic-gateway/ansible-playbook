@@ -28,6 +28,17 @@
 - name: mark for version hold
   shell: apt-mark hold kubelet kubeadm kubectl
 
+- name: configure kubectl for all users
+  become: true
+  copy:
+    dest: /etc/profile.d/kubecfg.sh
+    mode: ugo+r
+    content: |
+      export KUBECONFIG=/etc/kubernetes/admin.conf
+      source <(kubectl completion bash)
+      alias k=kubectl
+      complete -F __start_kubectl k
+
 - name: install python client libraries
   # I'd rather use the debian/ubuntu package but it's way too old
   command: pip3 install kubernetes~=12.0
