@@ -43,9 +43,6 @@ resource_model_artifact: https://github.com/epic-gateway/resource-model/releases
 # Web Service
 web_service_artifact: https://github.com/epic-gateway/web-service/releases/download/v0.11.3/web-service.yaml
 
-# TrueIngress
-true_ingress_artifact: https://github.com/epic-gateway/true-ingress/releases/download/v0.22.4/true-ingress.tar.bz2
-
 # Epicctl
 epicctl_artifact: https://github.com/epic-gateway/epicctl/releases/download/v0.11.1/epicctl
 epicctl_scanlogs_artifact: https://github.com/epic-gateway/epicctl/releases/download/v0.11.1/scan-logs

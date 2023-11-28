@@ -1,16 +1,19 @@
 ---
-- name: download True Ingress artifacts
-  get_url:
-    url: "{{ true_ingress_artifact }}"
-    dest: /root
+- name: create acnodal installation directory
+  file:
+    path: "{{ true_ingress_remote_path }}"
+    state: directory
+    mode: ugo+rx
+  become: true
 
-- name: untar artifacts
+- name: untar True Ingress artifacts
   unarchive:
-    src: /root/true-ingress.tar.bz2
+    src: "{{ true_ingress_artifact }}"
     dest: "{{ true_ingress_remote_path }}"
     extra_opts:
     - --strip-components=1
     remote_src: yes
+  become: true
 
 - name: mount BPF filesystem
   mount:
@@ -18,9 +21,11 @@
     fstype: bpf
     src: bpf
     path: /sys/fs/bpf
+  become: true
 
 - name: let sudo run TrueIngress commands
   lineinfile:
     path: /etc/sudoers
     regexp: "^Defaults.*secure_path="
     line: "Defaults        secure_path=\"{{ true_ingress_remote_path }}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\""
+  become: true

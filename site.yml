@@ -2,11 +2,13 @@
   roles:
   - epicws
   - focal
+  - trueingress
   - k8s
   - epic
 - hosts: epicnode
   roles:
   - focal
+  - trueingress
   - k8s
   - node
 - hosts: client

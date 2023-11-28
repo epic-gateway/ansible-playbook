@@ -1,16 +1,6 @@
 ---
 # tasks file for epic
-- name: install acnodal CLI tools
-  block:
-  - name: create acnodal installation directory
-    file:
-      path: "{{ true_ingress_remote_path }}"
-      state: directory
-      mode: ugo+rx
-  - include_tasks: true_ingress.yml
-  - include_tasks: epicctl.yml
-  become: true
-
+- include_tasks: epicctl.yml
 - include_tasks: k8s-install.yml
 
 - name: Fetch the EPIC admin kubeconfig # so we can use kubectl from the host
