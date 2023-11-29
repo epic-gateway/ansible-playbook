@@ -18,7 +18,7 @@ metadata:
 spec:
   epic:
     cluster-name: gwdev
-    gateway-hostname: gwdev-ctl
+    gateway-hostname: {{ ws_hostname }}
     service-account: {{ ws_sample_username }}
     service-key: {{ password.stdout }}
     user-namespace: root

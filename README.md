@@ -14,11 +14,11 @@ EPIC infrastructure project.
 ### /etc/hosts
 
 We use hostname-based virtual hosting for our web service proxy so you need to access it using a hostname, not an IP address.
-By default, the IP address is 192.168.254.200 and the hostname is epic-ctl.
-It can be helpful to add an entry to your `/etc/hosts` file so you can use "epic-ctl" with command-line tools like curl.
+By default, the IP address is 192.168.254.200 and the hostname is gwdev-ctl.
+It can be helpful to add an entry to your `/etc/hosts` file so you can use "gwdev-ctl" with command-line tools like curl.
 
 ```
-192.168.254.200    epic-ctl
+192.168.254.200    gwdev-ctl
 ```
 
 ## Makefile
