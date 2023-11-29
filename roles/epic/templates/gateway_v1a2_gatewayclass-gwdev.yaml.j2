@@ -26,11 +26,11 @@ spec:
   trueIngress:
     decapAttachment:
       direction: ingress
-      interface: eth0
+      interface: {{ true_ingress_interface }}
       flags: 1
       qid: 0
     encapAttachment:
       direction: egress
-      interface: eth0
+      interface: {{ true_ingress_interface }}
       flags: 20
       qid: 1
