@@ -21,4 +21,3 @@ sample_gw_config: 'gateway_v1a2_gatewayclass-gwdev.yaml'
 bird_remote_path: /opt/acnodal/bird
 
 ws_hostname: gwdev-ctl
-ws_ip: "192.168.254.200"
