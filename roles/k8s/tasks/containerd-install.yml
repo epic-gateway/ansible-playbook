@@ -5,28 +5,20 @@
     name:
     - runc
 
-- name: download CNI plugins
-  get_url:
-    url: https://github.com/containernetworking/plugins/releases/download/v1.1.1/cni-plugins-linux-amd64-v1.1.1.tgz
-    dest: /root
 - name: create CNI plugin directory
   file:
     path: /opt/cni/bin
     state: directory
     mode: '0755'
-- name: untar CNI plugins
+- name: unarchive CNI plugins
   unarchive:
-    src: /root/cni-plugins-linux-amd64-v1.1.1.tgz
+    src: https://github.com/containernetworking/plugins/releases/download/v1.1.1/cni-plugins-linux-amd64-v1.1.1.tgz
     dest: /opt/cni/bin
     remote_src: yes
 
-- name: download containerd
-  get_url:
-    url: https://github.com/containerd/containerd/releases/download/v1.6.14/containerd-1.6.14-linux-amd64.tar.gz
-    dest: /root
-- name: untar containerd
+- name: unarchive containerd
   unarchive:
-    src: /root/containerd-1.6.14-linux-amd64.tar.gz
+    src: https://github.com/containerd/containerd/releases/download/v1.6.14/containerd-1.6.14-linux-amd64.tar.gz
     dest: /usr/local
     remote_src: yes
 - name: create local containerd service unit directory
