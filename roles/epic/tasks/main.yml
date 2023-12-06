@@ -37,5 +37,3 @@
 - include_tasks: web-service-install.yml
 - include_tasks: purelb.yml
 - include_tasks: contour-ingress.yml
-- include_tasks: setup-daemon.yml
-  args: {apply: {become: true}}

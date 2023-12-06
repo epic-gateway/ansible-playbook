@@ -5,12 +5,14 @@
   - trueingress
   - k8s
   - epic
+  - networkdaemon
 - hosts: epicnode
   roles:
   - focal
   - trueingress
   - k8s
   - node
+  - networkdaemon
 - hosts: client
   roles:
   - clientws

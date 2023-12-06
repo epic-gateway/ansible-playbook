@@ -11,11 +11,13 @@
     src: setup-network
     dest: "{{ true_ingress_remote_path }}"
     mode: +x
+  become: true
 
 - name: create systemd service directory
   file:
     path: /usr/local/lib/systemd/system
     state: directory
+  become: true
 - name: install systemd service file for the network setup daemon
   copy:
     content: |
@@ -38,6 +40,7 @@
       [Install]
       WantedBy=multi-user.target
     dest: /usr/local/lib/systemd/system/setup-network.service
+  become: true
 
 - name: enable and start network setup daemon
   systemd:
@@ -45,3 +48,4 @@
     enabled: yes
     state: restarted
     daemon_reload: yes
+  become: true
