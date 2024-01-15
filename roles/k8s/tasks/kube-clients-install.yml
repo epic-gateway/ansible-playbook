@@ -8,14 +8,19 @@
     - ipvsadm
     install_recommends: no
 
+- name: create keyrings directory
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+
 - name: get gpg key
-  apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    state: present
+  shell:
+    cmd: curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+    creates: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
 - name: copy repo file
   apt_repository:
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
     state: present
     update_cache: yes
 

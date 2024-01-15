@@ -6,8 +6,9 @@ k8s_nic: eth1
 # optional private registry (for development)
 private_registry: "{{ lookup('env', 'EPIC_PRIVATE_REGISTRY') }}"
 
-k8s_version: 1.23.5
-k8s_version_apt: "{{ k8s_version }}-00"
+# Kubernetes version
+k8s_version: 1.28.5
+k8s_version_apt: "{{ k8s_version }}-1.1"
 k8s_version_kubeadm: "v{{ k8s_version }}"
 
 # TRUE_INGRESS config
