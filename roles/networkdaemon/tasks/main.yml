@@ -2,6 +2,7 @@
 - name: install python client libraries
   pip:
     name:
+    - protobuf~=4.0
     - kubernetes~=12.0
     - containerd~=1.4.1
   become: true
